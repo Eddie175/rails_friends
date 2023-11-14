@@ -1,0 +1,50 @@
+
+<% if user_signed_in? %>
+
+  <h1>Friend List</h1>
+
+  <table id="friends" class="table table-striped table-bordered table-hover">
+
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Twitter</th>
+        <th> </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @friends.each do |friend| %>
+        <% if friend.user == current_user %>
+          <tr>
+            <td>
+              <%= link_to friend.first_name + ' ' + friend.last_name, friend, class:"link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+            </td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.twitter %></td>
+            <td><%= button_to 'Delete', friend, method:  :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to "New friend", new_friend_path, class:"btn btn-primary" %>
+
+<% else %>
+
+  <h1>Sign in or create an account to view your friends!</h1>
+
+  <%= image_tag("friends_main/friends.png", class:"rounded mx-auto d-block img-fluid", alt:"Friends together", width: "500px") %>
+
+  <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-outline-primary" %>
+  <br>
+  <br>
+  <%= link_to 'Sign In', new_user_session_path, class:"btn btn-outline-primary" %>
+
+<% end %>

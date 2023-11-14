@@ -1,0 +1,22 @@
+<div id="<%= dom_id friend %>" class="bg-light border rounded-4 container text-center">
+  <div class="row align-items-center" style="height: 150px;">
+    <h1 class="col">
+      <%= friend.first_name %>
+      <%= friend.last_name %>
+    </h1>
+  </div>
+
+  <div class="row align-items-center" style="height: 100px; color: darkgrey;">
+    <h4 class="col">
+      Email: <br><%= friend.email %>
+    </h4>
+    <h4 class="col-1">|</h4>
+    <h4 class="col">
+      Phone: <br><%= friend.phone %>
+    </h4>
+    <h4 class="col-1">|</h4>
+    <h4 class="col">
+      Twitter: <br><%= friend.twitter %>
+    </h4>
+  </div>
+</div>
