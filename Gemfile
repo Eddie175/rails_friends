@@ -9,6 +9,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder" 
+gem "sqlite3", "~> 1.4"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem 'devise', '~> 4.9', '>= 4.9.3'
@@ -31,3 +32,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.13"
+
+gem "sentry-rails", "~> 5.13"
